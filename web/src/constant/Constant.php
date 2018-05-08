@@ -14,10 +14,9 @@ class Constant
     const DB_USER = 'root';
     const DB_PASS = 'root';
     const DB_NAME = 'StudentForm';
-
     const Table_Student= 'Students';
 
-    const LOGIN_RESULT_USER_NOT_EXIST = 1;
-    const LOGIN_RESULT_WRONG_PASSWORD = 2;
+//    const LOGIN_RESULT_USER_NOT_EXIST = 1;
+//    const LOGIN_RESULT_WRONG_PASSWORD = 2;
 
 }

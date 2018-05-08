@@ -61,7 +61,7 @@ class StudentModel extends Model
             $this->insertRow(Constant::Table_Student, $values);
             $this->loadUser($this->_name);
         } else {
-            throw new BankException("Student name already exsits");
+            throw new ConfirmException("Student name already exsits");
         }
         return $this;
     }

@@ -9,7 +9,7 @@
 namespace studentform\model;
 
 use studentform\constant\Constant;
-use studentform\exception\ConfirmException;
+//use studentform\exception\ConfirmException;
 use mysqli;
 
 class Model
@@ -74,9 +74,9 @@ class Model
      */
     public function createTables()
     {
-        // create User table ----------------------
+        // create Student table ----------------------
         $result = $this->db->query(
-            "CREATE TABLE IF NOT EXISTS Users (
+            "CREATE TABLE IF NOT EXISTS Students (
                                           `sid` int(8) unsigned NOT NULL AUTO_INCREMENT,
                                           `name` varchar(50) UNIQUE,
                                           `paper` int(6) NOT NULL,
@@ -84,10 +84,10 @@ class Model
                                           PRIMARY KEY (`sid`));"
         );
         if (!$result) {
-            // echo "Failed creating Table " . Constant::Table_User . "<br>";
+            // echo "Failed creating Table " . Constant::Table_Student . "<br>";
             error_log("Failed creating table " . Constant::Table_Student, 0);
         } else {
-            // echo "Succeed creating Table " . Constant::Table_User . "<br>";
+            // echo "Succeed creating Table " . Constant::Table_Student . "<br>";
         }
     }
     /**
@@ -178,4 +178,16 @@ class Model
       $this->insertStudents(11111116,"T.R",100104);
     }
 //    ----------For debug--------------------------------------------------------------
+    public function printStudentRow()
+    {
+        $result = $this->db->query(
+            "SELECT * from " . Constant::Table_Student . ";");
+        if (!$result) {
+            // echo "Failed print value from " . Constant::Table_Student . "<br>";
+        } else {
+            while ($row = $result->fetch_assoc()) {
+                // echo "--- ID: " . $row['uid'] . ", Name: " . $row['name'] . ", PassWord: " . $row['password'] . " ---<br>";
+            }
+        }
+    }
 }
